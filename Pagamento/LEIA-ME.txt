@@ -1,0 +1,1 @@
+Utilizei JSON-SERVER para testar as funcionalidades de banco de dados. Se souber inicializar a partir do cmd, inicialize a partir de Users.json. E então comece pela loja de teste (DebugLoja.html)
