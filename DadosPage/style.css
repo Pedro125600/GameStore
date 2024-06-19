@@ -161,6 +161,9 @@ nav ul li a {
     transition: background-color 0.3s;
     font-size: 14px;
 }
+.logout-button:hover {
+    background-color: darkred;
+}
 
 .text-error {
     display: none;
@@ -168,9 +171,6 @@ nav ul li a {
     margin: 0;
     margin-bottom: 10px;
     color: red;
-}
-.logout-button:hover {
-    background-color: darkred;
 }
 
 @media only screen and (max-width: 600px) {

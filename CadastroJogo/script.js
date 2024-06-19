@@ -17,10 +17,11 @@ try {
 
 let Credentials = JSON.parse(localStorage.getItem("Credentials"));
 
-// Redirecionar a pessoa para a página de Login se ela não estiver logada
+// Redirecionar a pessoa para a página de Login se ela não estiver logada ou se não for admin
 if (
     !Cadastros[Credentials.name] ||
-    Cadastros[Credentials.name]["senha"] != Credentials.senha
+    Cadastros[Credentials.name]["senha"] != Credentials.senha ||
+    Credentials.name != "admin"
 ) {
     localStorage.setItem("Credentials", JSON.stringify({}));
     window.location.href = "../LoginPage/index.html";

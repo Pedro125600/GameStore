@@ -6,7 +6,7 @@ const userNameDisplay = document.getElementById('user-name');
 const usernameText = document.getElementById("usernameText");
 const logoutButton = document.getElementById("logout-button");
   
-  logoutButton.addEventListener("click", () => {
+logoutButton.addEventListener("click", () => {
     // Sair da conta atual (Remover as credenciais e redirecionar para a página de login)
     localStorage.setItem("Credentials", JSON.stringify({}));
     window.location.href = "../LoginPage/index.html";

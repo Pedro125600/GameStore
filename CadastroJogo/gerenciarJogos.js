@@ -1,11 +1,7 @@
-const usernameText = document.getElementById("usernameText");
-const logoutButton = document.getElementById("logout-button");
-  
-logoutButton.addEventListener("click", () => {
-    // Sair da conta atual (Remover as credenciais e redirecionar para a página de login)
-    localStorage.setItem("Credentials", JSON.stringify({}));
-    window.location.href = "../LoginPage/index.html";
-})
+const usernameText = document.getElementById("usernameText")
+const logoutButton = document.getElementById("logout-button")
+const adminButton = document.getElementById("adminButton")
+const adminError = document.getElementById("adminError")
 
 let Cadastros; // Objeto que contem todas as contas
 try {
@@ -20,12 +16,29 @@ let Credentials = JSON.parse(localStorage.getItem("Credentials"));
 // Redirecionar a pessoa para a página de Login se ela não estiver logada
 if (
     !Cadastros[Credentials.name] ||
-    Cadastros[Credentials.name]["senha"] != Credentials.senha
+    Cadastros[Credentials.name]["senha"] != Credentials.senha ||
+    (!adminButton && Credentials.name != "admin")
 ) {
     localStorage.setItem("Credentials", JSON.stringify({}));
     window.location.href = "../LoginPage/index.html";
 } else {
     usernameText.textContent = Credentials.unchangedname
+}
+
+logoutButton.addEventListener("click", () => {
+  // Sair da conta atual (Remover as credenciais e redirecionar para a página de login)
+  localStorage.setItem("Credentials", JSON.stringify({}));
+  window.location.href = "../LoginPage/index.html";
+})
+
+if (adminButton) {
+  adminButton.addEventListener("click", () => {
+    if (Credentials.name == "admin") {
+      window.location.href = "./index.html"
+    } else {
+      adminError.setAttribute("class", "text-danger fs-5")
+    }
+  })
 }
 
 let jogoEditandoId = null;
@@ -48,8 +61,9 @@ function exibirJogosCadastrados() {
       <td><img src="${jogo.capa}" alt="Capa do Jogo" style="width: 50px;"></td>
       <td>${generateOtherImages(jogo.outrasImagens)}</td>
       <td>
-        <button class="btn btn-warning btn-sm" onclick="editarJogo(${jogo.id})">Editar</button>
-        <button class="btn btn-danger btn-sm mt-2" onclick="excluirJogo(${jogo.id})">Excluir</button>
+        ${(Credentials.name == "admin") ? `<button class="btn btn-warning btn-sm" onclick="editarJogo(${jogo.id})">Editar</button>
+        <button class="btn btn-danger btn-sm mt-2" onclick="excluirJogo(${jogo.id})">Excluir</button>` :  ""}
+        <button class="btn btn-primary btn-sm mt-2" onclick="comprarJogo(${jogo.id})">Comprar</button>
       </td>
     `;
     tbody.appendChild(row);
