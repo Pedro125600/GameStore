@@ -1,0 +1,104 @@
+* {
+  color: white
+}
+
+.text2 {
+  color: white !important;
+}
+
+
+.navbar-brand img {
+  max-height: 50px;
+
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  max-height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+body {
+  margin: 0;
+  background-color: black !important;
+
+}
+
+.navbar-toggler-icon.text2 {
+  color: white !important;
+}
+
+nav {
+  background-color: #993399 !important;
+}
+
+h1 {
+  border-bottom: 2px solid #993399;
+}
+
+
+.selec {
+  color: #333 !important;
+}
+
+option {
+  color: white;
+}
+
+
+.form-control {
+  background-color: #333 !important;
+
+  color: white !important;
+
+  border-color: #555 !important;
+
+}
+
+.form-select {
+  background-color: #333 !important;
+
+  color: white !important;
+
+  border-color: #555 !important;
+}
+
+.custom-btn {
+  width: 100%;
+  background-color: #993399 !important;
+  ;
+
+  border-color: #993399 !important;
+
+}
+
+
+.custom-btn:hover {
+  background-color: #993399 !important;
+
+  border-color: #993399 !important;
+
+}
+
+.btn-voltar {
+  background-color: #993399 !important;
+  border-color: #993399 !important;
+  margin-bottom: 15px;
+
+}
+
+.truncate {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
