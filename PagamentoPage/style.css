@@ -1,0 +1,123 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#total {
+    background-color: rgb(173, 52, 189);
+}
+
+::placeholder {
+    color: aliceblue;
+    opacity: 50%;
+}
+
+header {
+    background-color: rgb(173, 52, 189);
+    color: aliceblue;
+    #navsearch {
+        background-color: black;
+        border-radius: 10px;
+        color: aliceblue;
+    }
+    .profile {
+        background-color: black;
+        border-radius: 5px;
+        color: aliceblue;
+    }
+}
+
+.carrinho {
+    border: 3px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-style: solid;
+    border-color: rgb(173, 52, 189);
+
+    a {
+        color: white;
+    }
+
+    .promo {
+        background-color: rgb(173, 52, 189);
+        border-radius: 5px;
+    }
+
+    .oldprice {
+        opacity: 50%;
+    }
+}
+
+.payment {
+    border: 2px;
+    border-style: solid;
+    min-height: 200px;
+    border-color: rgb(173, 52, 189);
+
+    select {
+        border: 2px;
+        border-style: solid;
+        border-color: rgb(173, 52, 189);
+        color: white;
+        background-color: rgb(26, 26, 26);
+    }
+
+    input {
+        border: 2px;
+        border-style: solid;
+        border-color: rgb(173, 52, 189);
+        color: white;
+        background-color: rgb(26, 26, 26);
+    }
+
+    button {
+        border: 2px;
+        border-style: solid;
+        border-color: rgb(173, 52, 189);
+        color: white;
+        background-color: rgb(173, 52, 189);
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .carrinho {
+        font-size: 1.5vw;
+    }
+    .payment {
+        font-size: 1.5vw;
+    }
+}
+@media (max-width: 991.98px) {
+    .carrinho {
+        font-size: 2.5vw;
+    }
+    .payment {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .carrinho {
+        font-size: 4vw;
+    }
+    .payment {
+        font-size: 3vw;
+    }
+    #pfltext {
+        font-size: 3vw;
+    }
+    #collapsable {
+        background-color: rgb(113, 34, 124);
+    }
+}
+@media (max-width: 575.98px) {
+    .carrinho {
+        font-size: 6vw;
+        height: auto;
+    }
+    .payment {
+        font-size: 4vw;
+    }
+}

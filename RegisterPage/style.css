@@ -1,0 +1,58 @@
+.montserrat-family {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 250 !important;
+  font-style: normal;
+}
+
+html,body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+#LoginArea {
+    height: 95%;
+}
+
+.custom-row {
+    width: 70%;
+}
+
+#imgDiv {
+    height: 30%;
+}
+
+#formDiv {
+    max-width: 800px;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+
+.form-control, .input-group-text {
+    color: white !important;
+    border-color: #e000e0 !important; 
+    background-color: black !important;
+}
+.form-control::placeholder {
+    color: white !important;
+}
+.form-control:focus {
+    box-shadow: none !important;
+}
+#registerButton {
+    background-color: #bf01bf !important;
+    font-weight: 600 !important;
+}
+
+@media (min-height: 700px) {
+    .container-fluid {
+        height: 100% !important;
+    }
+}

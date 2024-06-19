@@ -1,0 +1,184 @@
+{
+    "jogos": [
+      {
+        "id": 1,
+        "nome": "Hades",
+        "preço": 49.99,
+        "sale": 0,
+        "description": "Desafie o deus dos mortos enquanto você batalha para sair do Submundo neste jogo roguelike dos mesmos criadores de Bastion, Transistor e Pyre.",
+        "cover": "https://www.adrenaline.com.br/wp-content/uploads/2023/07/hades-capa.jpg",
+        "cart": 1
+      },
+      {
+        "nome": "Dead Cells",
+        "preço": 47.49,
+        "sale": 0.2,
+        "description": "Dead Cells is a rogue-lite, metroidvania inspired, action-platformer. You'll explore a sprawling, ever-changing castle... assuming you're able to fight your way past its keepers in 2D souls-lite combat. No checkpoints. Kill, die, learn, repeat. Regular free content updates!",
+        "id": 2,
+        "cover": "https://assets1.ignimgs.com/2019/06/10/dead-cells---button-fin-1560125633132.jpg",
+        "cart": 1
+      },
+      {
+        "nome": "Celeste",
+        "preço": 59.99,
+        "sale": 0,
+        "description": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain.",
+        "id": 3,
+        "cover": "https://images.nintendolife.com/ef02c2e24c59e/celeste-cover.cover_large.jpg",
+        "cart": 1
+      },
+      {
+        "nome": "The Binding of Isaac: Rebirth",
+        "preço": 27.99,
+        "sale": 0.1,
+        "description": "The Binding of Isaac: Rebirth is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets...",
+        "id": 4,
+        "cover": "https://image.api.playstation.com/cdn/UP2103/CUSA00792_00/DxIB6twEsVkYanltsoOLP3ZVfBrHbhub.png",
+        "cart": 1
+      },
+      {
+        "nome": "The Talos Principle",
+        "preço": 79.99,
+        "sale": 0.25,
+        "description": "The Talos Principle is a first-person puzzle game in the tradition of philosophical science fiction. Made by Croteam and written by Tom Jubert (FTL, The Swapper) and Jonas Kyratzes (The Sea Will Claim Everything).",
+        "id": 5,
+        "cover": "https://image.api.playstation.com/cdn/UP3643/CUSA00910_00/rG3Zwv26mr6rnygD3ZCBUG80dXsWtZQl.png",
+        "cart": 0
+      },
+      {
+        "nome": "Slime Rancher",
+        "preço": 49.99,
+        "sale": 0,
+        "description": "Slime Rancher conta a história de Beatrix LeBeau, uma jovem e corajosa rancheira que parte para uma vida a mil anos-luz de distância da Terra, na Borda Muito Distante, onde tenta ganhar a vida criando slimes.",
+        "id": 6,
+        "cover": "https://image.api.playstation.com/vulcan/img/cfn/11307NUlRPcxCgzizu6gpFZiR_WIqYHV9W0G8obBn0J1qCXY-SjbkzKihVNA3WzUQHbD08zWVaN-a7U5--t57lc-gckkQ0f-.png",
+        "cart": 1
+      },
+      {
+        "nome": "Viscera Cleanup Detail",
+        "preço": 39.99,
+        "sale": 0,
+        "description": "In Viscera Cleanup Detail, you step into the boots of a space-station janitor tasked with cleaning up after various horrific sci-fi horror events. Instead of machineguns and plasma-rifles, your tools are a mop and bucket. That hero left a mess, and it's up to you to deal with the aftermath.",
+        "id": 7,
+        "cover": "https://coverartarchive.org/release/ecff2f6c-ab49-40a1-9ff9-a2085bb8620a/13782366036.jpg",
+        "cart": 0
+      },
+      {
+        "nome": "Devil May Cry 5",
+        "preço": 89.99,
+        "sale": 0,
+        "description": "The ultimate Devil Hunter is back in style, in the game action fans have been waiting for.",
+        "id": 8,
+        "cover": "https://image.api.playstation.com/cdn/UP0102/CUSA08216_00/gnSQT6BQ9YSWRQVOCOWB08SmmRhzF8fF.png?w=440&thumb=false",
+        "cart": 0
+      },
+      {
+        "nome": "Scribblenauts Unlimited",
+        "preço": 89.99,
+        "sale": 0,
+        "description": "The best-selling, award-winning franchise is back - on your home PC in gorgeous HD for the first time.",
+        "id": 9,
+        "cover": "https://cdn2.steamgriddb.com/thumb/82c03faf5831d25fc9b4bf42cd7c0a32.jpg",
+        "cart": 0
+      },
+      {
+        "nome": "Half-Life 2",
+        "preço": 32.99,
+        "sale": 0,
+        "description": "1998. HALF-LIFE sends a shock through the game industry with its combination of pounding action and continuous, immersive storytelling. Valve's debut title wins more than 50 game-of-the-year awards on its way to being named ''Best PC Game Ever'' by PC Gamer",
+        "id": 10,
+        "cover": "https://e.snmc.io/i/1200/s/b0233b29b835ff6d23ef72393ae10ae0/5167395",
+        "cart": 0
+      },
+      {
+        "nome": "Have a Nice Death",
+        "preço": 65.99,
+        "sale": 0,
+        "description": "Have a Nice Death is a 2D action roguelike where you play as an overworked Death, whose employees have run rampant, completely throwing off the balance of souls - and his vacation plans. In order to restore order, you'll have to grab your trusty scythe and show your employees who's boss.",
+        "id": 11,
+        "cover": "https://sm.ign.com/ign_br/cover/h/have-a-nic/have-a-nice-death_xda2.jpg",
+        "cart": 1
+      },
+      {
+        "nome": "Antichamber",
+        "preço": 34.99,
+        "sale": 0,
+        "description": "Antichamber is a mind-bending psychological exploration game where nothing can be taken for granted. Discover an Escher-like world where hallways wrap around upon each other, spaces reconfigure themselves, and accomplishing the impossible may just be the only way forward.",
+        "id": 12,
+        "cover": "https://www.giantbomb.com/a/uploads/scale_small/9/93770/2419538-antichamber_final.jpg",
+        "cart": 1
+      },
+      {
+        "nome": "Portal 2",
+        "preço": 29.99,
+        "sale": 0,
+        "description": "The 'Perpetual Testing Initiative' has been expanded to allow you to design co-op puzzles for you and your friends!",
+        "id": 13,
+        "cover": "https://e.snmc.io/lk/lv/x/18d54ecf347234694f75763699c58236/7499297",
+        "cart": 0
+      },
+      {
+        "nome": "ELDEN RING",
+        "preço": 229.99,
+        "sale": 0,
+        "description": "THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
+        "id": 14,
+        "cover": "https://bleedingcool.com/wp-content/uploads/2022/01/The-Elden-Ring_COVER-900x900.jpeg",
+        "cart": 1
+      },
+      {
+        "nome": "Apollo Justice - Ace Attorney Trilogy",
+        "preço": 212.99,
+        "sale": 0.5,
+        "description": "Join rookie attorney Apollo Justice and his mentor, the legendary Phoenix Wright, in this collection of 3 games! This title features 16 episodes (including previously DLC-only episodes) and supports English, French, German, Japanese Korean, and Traditional and Simplified Chinese.",
+        "id": 15,
+        "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202307/0600/6b78f24a1851f8b281fbdbede42850bd3c222dc5d26f344a.png",
+        "cart": 1
+      },
+      {
+        "nome": "Ghost Trick: Phantom Detective",
+        "preço": 119.99,
+        "sale": 0.666,
+        "description": "Ghost Trick: Phantom Detective, the classic puzzle-solving mystery adventure directed by Ace Attorney creator Shu Takumi, is back! This long-awaited HD remaster features upgraded visuals and sound and new gallery content.",
+        "id": 16,
+        "cover": "https://sm.ign.com/ign_br/cover/g/ghost-tric/ghost-trick-phantom-detective-remaster_3dps.jpg",
+        "cart": 1
+      },
+      {
+        "nome": "Age of Mythology: Retold",
+        "preço": 99.99,
+        "sale": 0,
+        "description": "Age of Mythology is back! Choose your god and take to the battlefield in this classic, upgraded with full Steamworks integration and enhanced features.",
+        "id": 17,
+        "cover": "https://steamuserimages-a.akamaihd.net/ugc/2461851071364131303/CDA07447FC8120FA80E870FC6A4E1E2316559905/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+        "cart": 1
+      },
+      {
+        "nome": "Dying Light",
+        "preço": 50.99,
+        "sale": 0,
+        "description": "First-person action survival game set in a post-apocalyptic open world overrun by flesh-hungry zombies. Roam a city devastated by a mysterious virus epidemic. Scavenge for supplies, craft weapons, and face hordes of the infected.",
+        "id": 18,
+        "cover": "https://cdn.mobygames.com/covers/7176551-dying-light-playstation-4-front-cover.jpg",
+        "cart": 0
+      },
+      {
+        "nome": "OneShot",
+        "preço": 32.99,
+        "sale": 0,
+        "description": "OneShot is a surreal top down Puzzle/Adventure game with unique gameplay capabilities. You are to guide a child through a mysterious world on a mission to restore its long-dead sun. The world knows you exist.",
+        "id": 19,
+        "cover": "https://cdns-images.dzcdn.net/images/cover/6812cb36c52076bb42ffee0968149301/500x500.jpg",
+        "cart": 1
+      },
+      {
+        "nome": "VVVVVV",
+        "preço": 16.99,
+        "sale": 0,
+        "description": "VVVVVV is a platform game all about exploring one simple mechanical idea - what if you reversed gravity instead of jumping?",
+        "id": 20,
+        "cover": "https://cdn.mobygames.com/covers/681178-vvvvvv-ps-vita-front-cover.jpg",
+        "cart": 0
+      }
+    ]
+}

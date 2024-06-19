@@ -1,0 +1,200 @@
+body {
+    background-color: black;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: purple;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.user {
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    color: white;
+}
+
+.search-bar {
+    background-color: purple;
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.search-bar input {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    color: white;
+    background-color: black;
+}
+
+.user-data {
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.purple-line {
+    border: 0;
+    height: 4px;
+    background: purple;
+    margin: 20px 0; /* Adiciona margem superior e inferior para centralizar a linha */
+    width: 100%; /* Define a largura da linha como 100% */
+}
+
+.data-field {
+    margin: 0 auto;
+    width: 70%; /* Ajusta a largura dos campos de entrada */
+    max-width: 700px;
+}
+
+.input-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 10px;
+}
+
+.input-button-wrapper input {
+    flex-grow: 1;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.alter-button {
+    background-color: black;
+    color: white;
+    border: 1px solid purple;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.alter-button:hover {
+    background-color: #7d26cd;
+}
+
+.save-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.save-button, .perfil-button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+}
+
+.save-button:hover, .perfil-button:hover {
+    background-color: #7d26cd;
+}
+
+.perfil-button {
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.logout-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.text-error {
+    display: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    color: red;
+}
+.logout-button:hover {
+    background-color: darkred;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .user {
+        margin-top: 20px;
+    }
+
+    .data-field {
+        width: 91%; 
+    }
+
+    .input-button-wrapper {
+        justify-content: space-between;
+    }
+
+    .input-button-wrapper input {
+        width: calc(50% - 5px);
+    }
+
+  #pesquisarinput {
+    width: 100%;
+  }
+}

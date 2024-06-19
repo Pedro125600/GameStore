@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header class="bg-purple text-white p-3 d-flex justify-content-between align-items-center">
+        <div class="logo d-flex align-items-center">
+            <img src="logo.webp" alt="Logo" class="logo-img">
+            <h1 class="ml-3">Game Library</h1>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="#">Loja</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Biblioteca</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Navegar</a></li>
+            </ul>
+        </nav>
+        <div class="user d-flex align-items-center">
+            <input type="text" class="form-control mr-2" placeholder="Barra de pesquisa">
+            <button class="btn btn-outline-light">Pesquisar</button>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <div id="user-section">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <img src="vecteezy_user-icon-design_9267048.png" alt="Usuário" class="rounded-circle img-fluid">
+                    <h2 class="mt-2" id="user-name">Usuário</h2>
+                    <div class="d-flex flex-column mt-3">
+                        <a href="../DadosPage/index.html" class="btn btn-outline-primary mb-2">Alterar Dados</a>
+                        <a href="#" class="btn btn-outline-primary mb-2">Amigos</a>
+                        <a href="#" class="btn btn-outline-primary">Conquistas</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h2>Jogos do usuário</h2>
+                    <div class="d-flex flex-wrap">
+                        <div class="card m-2" style="width: 18rem;">
+                            <img src="fort.jpg" class="card-img-top" alt="Game 1">
+                        </div>
+                        <div class="card m-2" style="width: 18rem;">
+                            <img src="halo.png" class="card-img-top" alt="Game 2">
+                        </div>
+                        <div class="card m-2" style="width: 18rem;">
+                            <img src="the last of us.jpg" class="card-img-top" alt="Game 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-purple text-white text-center p-3 mt-4">
+        <p>Rápido. Barato. Seguro.</p>
+        <div class="d-flex justify-content-center">
+            <a href="#" class="text-white mx-2">Facebook</a>
+            <a href="#" class="text-white mx-2">Twitter</a>
+            <a href="#" class="text-white mx-2">Instagram</a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
