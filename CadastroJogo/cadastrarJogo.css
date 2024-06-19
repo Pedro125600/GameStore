@@ -30,7 +30,6 @@
 body {
   margin: 0;
   background-color: black !important;
-
 }
 
 .navbar-toggler-icon.text2 {
@@ -101,4 +100,20 @@ option {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+.logout-button:hover {
+  background-color: darkred;
 }

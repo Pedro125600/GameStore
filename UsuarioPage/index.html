@@ -10,28 +10,42 @@
 </head>
 
 <body>
-    <header class="bg-purple text-white p-3 d-flex justify-content-between align-items-center">
-        <div class="logo d-flex align-items-center">
-            <img src="logo.webp" alt="Logo" class="logo-img">
-            <h1 class="ml-3">Game Library</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="../Images/logo.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text2" href="./index.html">Biblioteca</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text2" href="../CadastroJogo/listaJogos.html">Navegar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text2" href="../CadastroJogo/listaJogos.html">Loja</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                </form>
+                <div class="user-info">
+                    <img id="profileImg" src="../Images/user-icon.png" alt="User Avatar">
+                    <span id="usernameText">Usuário</span>
+                    <button id="logout-button" class="logout-button ms-2 bg-danger">Sair</button>
+                </div>
+            </div>
         </div>
-        <nav>
-            <ul class="nav">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Loja</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Biblioteca</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Navegar</a></li>
-            </ul>
-        </nav>
-        <div class="user d-flex align-items-center">
-            <input type="text" class="form-control mr-2" placeholder="Barra de pesquisa">
-            <button class="btn btn-outline-light">Pesquisar</button>
-        </div>
-    </header>
+    </nav>
     <main class="container mt-4">
         <div id="user-section">
             <div class="row">
                 <div class="col-md-3 text-center">
-                    <img src="vecteezy_user-icon-design_9267048.png" alt="Usuário" class="rounded-circle img-fluid">
+                    <img src="../Images/user-icon.png" alt="Usuário" class="rounded-circle img-fluid">
                     <h2 class="mt-2" id="user-name">Usuário</h2>
                     <div class="d-flex flex-column mt-3">
                         <a href="../DadosPage/index.html" class="btn btn-outline-primary mb-2">Alterar Dados</a>

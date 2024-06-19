@@ -106,7 +106,7 @@ loginButton.addEventListener("click", () => {
 
             //Aguardar 2 segundos e ir para a página de acesso
             setTimeout(() => {
-                window.location.href = "../DadosPage/index.html";
+                window.location.href = "../UsuarioPage/index.html";
             }, 1000);
         }
     }

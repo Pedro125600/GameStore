@@ -1,15 +1,30 @@
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
+nav {
+  background-color: #993399 !important;
 }
 
-.bg-purple {
-  background-color: #800080;
+.text2 {
+  color: white !important;
 }
 
-.logo-img {
-  height: 40px;
+
+.navbar-brand img {
+  max-height: 50px;
+
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  max-height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 header h1 {
@@ -32,6 +47,20 @@ nav ul li {
   color: #fff;
 }
 
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.bg-purple {
+  background-color: #800080;
+}
+
+.logo-img {
+  height: 40px;
+}
+
 .user input {
   border-radius: 20px;
 }
@@ -52,4 +81,20 @@ footer p {
 footer .d-flex a {
   font-size: 1.2rem;
   color: #fff;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+.logout-button:hover {
+  background-color: darkred;
 }
