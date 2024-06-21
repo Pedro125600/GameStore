@@ -1,5 +1,7 @@
 const usernameText = document.getElementById("usernameText");
 const logoutButton = document.getElementById("logout-button");
+const urlParams = new URLSearchParams(window.location.search);
+const IdJogo = urlParams.get('id');
 
 logoutButton.addEventListener("click", () => {
     // Sair da conta atual (Remover as credenciais e redirecionar para a página de login)
@@ -28,54 +30,61 @@ if (
     usernameText.textContent = Credentials.unchangedname
 }
 
+let Jogos; // Objeto que contem todas os jogos
+try {
+    Jogos = JSON.parse(localStorage.jogos);
+} catch {
+    Jogos = {};
+    localStorage.setItem("jogos", JSON.stringify(Jogos));
+}
+
+let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
+try {
+    JogosComprados = Cadastros[Credentials.name].JogosComprados;
+} catch (err) {
+    JogosComprados = []
+    Cadastros[Credentials.name].JogosComprados = JogosComprados
+    localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+}
+
+let jogos_carrinho; // Objeto que contem um vetor de ID dos jogos no carrinho
+try {
+    jogos_carrinho = JSON.parse(localStorage.getItem("jogos_carrinho"));
+} catch (err) {
+    jogos_carrinho = []
+    localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho));
+}
+
 async function ConectDatabase() {
     try {
         let cart = [];
-        const userId = 1; // a conectar com database de usuários
-        const response1 = await fetch('http://localhost:3000/User/' + userId);
-        const user = await response1.json();
-        user.jogos_carrinho.forEach(carts => {
-            cart.push(carts.id);
-        });
-        const response2 = await fetch('localdb.json');
-        const data = await response2.json();
-        data.jogos.forEach(jogo => {
+        
+        for (let id of jogos_carrinho) {
+            cart.push(id);
+        };
+
+        for (let jogo of Jogos) {
             if (cart.includes(jogo.id)) {
-                storedprices.push(jogo.preço * (1 - jogo.sale));
+                storedprices.push(jogo.valor);
                 addCard(jogo);
             }
-        });
-        auserId = userId;
+        };
+
         Soma()
     } catch (error) {
         console.error('Error fetching the JSON data:', error);
     }
 }
 
-ConectDatabase()
-
 var auserId;
 var cardCounter = 1;
+
 function addCard(jogo) {
     const cardId = `${cardCounter}`;
-    let promover;
-    if (jogo.sale > 0) {
-        promover = `<div class=" card-body text-wrap text-break">
+    let promover = `<div id="bandaider" class=" card-body text-wrap">
         <p><a class="text-decoration-none" href="game${jogo.id}.html">${jogo.nome}</a></p>
-        <p class="d-flex oldprice text-decoration-line-through m-0 justify-content-center">
-            R$${jogo.preço}</p>
-        <div class="d-flex justify-content-center">
-            <div class="promo mx-1">
-                <p>-${Math.round(jogo.sale * 10000) / 100}%</p>
-            </div>
-            <p>R$${parseFloat(jogo.preço * (1 - jogo.sale)).toFixed(2)}</p>
-        </div>`
-    }
-    else {
-        promover = `<div id="bandaider" class=" card-body text-wrap">
-        <p><a class="text-decoration-none" href="game${jogo.id}.html">${jogo.nome}</a></p>
-        <p>R$${jogo.preço}</p>`;
-    }
+        <p>R$${jogo.valor}</p>`;
+    
     const modalHtml = `<div class="modal modal-sheet p-4 py-md-5" tabindex="-1" role="dialog"
     id="modalChoice${cardId}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered pe-sm-0 pe-md-3" aria-hidden="true" role="document">
@@ -101,7 +110,7 @@ function addCard(jogo) {
             <div class="carrinho my-2 d-flex align-items-stretch h-md-100">
                 <div class="p-2">
                     <img class="display-flex flex-grow flex-shrink col-10 col-sm-10 col-md-10 col-lg-6"
-                        src="${jogo.cover}" width="100%">
+                        src="${jogo.capa}" width="100%">
                     ${promover}
                         <a href="#/" class="" data-bs-toggle="modal" data-bs-target="#modalChoice${cardId}">Remover Jogo</a>
                     </div>
@@ -118,15 +127,18 @@ function addCard(jogo) {
 
 var storedprices = [0.0];
 var soma = 0;
+
+ConectDatabase()
+
 function Soma() {
     soma = 0;
-    storedprices.forEach(price => {
+    for (price of storedprices) {
+        console.log(price)
         soma += price;
-    })
+    }
     let window = document.getElementById('totalscreen');
     window.innerHTML = "TOTAL: R$" + parseFloat(soma).toFixed(2);
 }
-
 
 /*function removeCart(cardId) {
     const card = document.getElementById(cardId);
@@ -138,24 +150,13 @@ function Soma() {
 }*/
 async function removeCart(gameId) {
     try {
-        const response = await fetch('http://localhost:3000/User/' + auserId);
-        const user = await response.json();
-        const index = user.jogos_carrinho.findIndex(item => item.id == gameId);
+        let index = jogos_carrinho.findIndex(item => item == gameId);
         if (index !== -1) {
-            user.jogos_carrinho.splice(index, 1);
-        }
-        const updateResponse = await fetch('http://localhost:3000/User/' + auserId, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
-        });
-
-        if (!updateResponse.ok) {
-            throw new Error('Failed to update the cart');
+            jogos_carrinho.splice(index, 1);
         }
 
+        localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho))
+        window.location.reload()
     } catch (error) {
         console.error('Error removing from cart:', error);
     }
@@ -237,7 +238,6 @@ function PagaProper() {
     }
     paycontainer.innerHTML = actualHtml;
 }
-
 
 function ExternalSite(site, type) {
     var failsafe;

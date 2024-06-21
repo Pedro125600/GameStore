@@ -58,7 +58,8 @@ nav ul li {
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 14px;
-  }
+}
+
 .logout-button:hover {
     background-color: rgb(175, 0, 0);
 }
@@ -83,23 +84,6 @@ body {
 ::placeholder {
     color: aliceblue;
     opacity: 50%;
-}
-
-header {
-    background-color: rgb(173, 52, 189);
-    color: aliceblue;
-
-    #navsearch {
-        background-color: black;
-        border-radius: 10px;
-        color: aliceblue;
-    }
-
-    .profile {
-        background-color: black;
-        border-radius: 5px;
-        color: aliceblue;
-    }
 }
 
 .carrinho {
@@ -129,32 +113,33 @@ header {
     border-style: solid;
     min-height: 200px;
     border-color: rgb(173, 52, 189);
-
-    select {
-        border: 2px;
-        border-style: solid;
-        border-color: rgb(173, 52, 189);
-        color: white;
-        background-color: rgb(26, 26, 26);
-    }
-
-    input {
-        border: 2px;
-        border-style: solid;
-        border-color: rgb(173, 52, 189);
-        color: white;
-        background-color: rgb(26, 26, 26);
-    }
-
-    button {
-        border: 2px;
-        border-style: solid;
-        border-color: rgb(173, 52, 189);
-        color: white;
-        background-color: rgb(173, 52, 189);
-        width: 50%;
-    }
 }
+
+select {
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(173, 52, 189);
+    color: white;
+    background-color: rgb(26, 26, 26);
+}
+
+input {
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(173, 52, 189);
+    color: white;
+    background-color: rgb(26, 26, 26);
+}
+
+button {
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(173, 52, 189);
+    color: white;
+    background-color: rgb(173, 52, 189);
+    width: 50%;
+}
+
 
 @media (min-width: 992px) {
     .carrinho {

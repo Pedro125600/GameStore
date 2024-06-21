@@ -1,70 +1,98 @@
-var auserId;
-document.addEventListener('DOMContentLoaded', async (event) => {
+const usernameText = document.getElementById("usernameText");
+const logoutButton = document.getElementById("logout-button");
+const urlParams = new URLSearchParams(window.location.search);
+const IdJogo = urlParams.get('id');
+
+logoutButton.addEventListener("click", () => {
+    // Sair da conta atual (Remover as credenciais e redirecionar para a página de login)
+    localStorage.setItem("Credentials", JSON.stringify({}));
+    window.location.href = "../../LoginPage/index.html";
+})
+
+let Cadastros; // Objeto que contem todas as contas
+try {
+    Cadastros = JSON.parse(localStorage.Cadastros);
+} catch {
+    Cadastros = {};
+    localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+}
+
+let Credentials = JSON.parse(localStorage.getItem("Credentials"));
+
+// Redirecionar a pessoa para a página de Login se ela não estiver logada
+if (
+    !Cadastros[Credentials.name] ||
+    Cadastros[Credentials.name]["senha"] != Credentials.senha
+) {
+    localStorage.setItem("Credentials", JSON.stringify({}));
+    window.location.href = "../LoginPage/index.html";
+} else {
+    usernameText.textContent = Credentials.unchangedname
+}
+
+let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
+try {
+    JogosComprados = Cadastros[Credentials.name].JogosComprados;
+} catch (err) {
+    JogosComprados = []
+    Cadastros[Credentials.name].JogosComprados = JogosComprados
+    localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+}
+
+let jogos_carrinho; // Objeto que contem um vetor de ID dos jogos no carrinho
+try {
+    jogos_carrinho = JSON.parse(localStorage.getItem("jogos_carrinho"));
+} catch (err) {
+    jogos_carrinho = []
+    localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho));
+}
+
+if (jogos_carrinho.length == 0) {
+    window.location.href = "../../UsuarioPage/index.html"
+}
+
+function processar() {
     try {
-        const userId = 1; // a conectar com database de usuários
-        const response1 = await fetch('http://localhost:3000/User/' + userId);
-        const user = await response1.json();
-        auserId = userId;
-        var cart = user.jogos_carrinho.map(carts => carts.id);
-        for (const gameId of cart) {
-            //console.log(gameId + " got registered");
-            await BuyCart(userId, gameId);
-            //console.log(gameId + " went through BUY");
-            await removeCart(gameId);
-            //console.log(gameId + " went through REMOVE");
+        
+        while (jogos_carrinho.length > 0) {
+            gameId = jogos_carrinho[0]
+            BuyCart(gameId)
         }
-        document.getElementById('resultcontainer').innerHTML = `Compra Processada com Sucesso! <br><br> <a href="../DebugLoja.html"> Verificar (página de teste)</a>`;
+
+        document.getElementById('resultcontainer').innerHTML = `Compra Processada com Sucesso! <br><br> <a href="../../UsuarioPage/index.html"> Ir para a Página de Usuário</a>`;
     } catch (error) {
         console.error('Error fetching the JSON data:', error);
     }
-});
+}
 
-async function removeCart(gameId) {
+function removeCart(gameId) {
     try {
-        const response = await fetch('http://localhost:3000/User/' + auserId);
-        const user = await response.json();
-        const index = user.jogos_carrinho.findIndex(item => item.id === gameId);
+        const index = jogos_carrinho.findIndex(item => item == gameId);
         if (index !== -1) {
-            //console.log(index + 1 + "° got out!");
-            user.jogos_carrinho.splice(index, 1);
-
-            const updateResponse = await fetch('http://localhost:3000/User/' + auserId, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user),
-            });
-            if (!updateResponse.ok) {
-                throw new Error('Failed to update the cart');
-            }
-        }
+            jogos_carrinho.splice(index, 1);
+            localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho))
+        }      
     } catch (error) {
         console.error('Error removing from cart:', error);
     }
 }
 
-async function BuyCart(userId, gameId) {
+function BuyCart(gameId) {
     try {
-        const response = await fetch('http://localhost:3000/User/' + userId);
-        const user = await response.json();
-        //console.log(gameId + " got In!");
-        user.jogos_comprados.push({ id: gameId });
-
-        const updateResponse = await fetch('http://localhost:3000/User/' + userId, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
-        });
-        if (!updateResponse.ok) {
-            throw new Error('Failed to update the cart');
+        if (!JogosComprados.includes(gameId)) {
+            JogosComprados.push(gameId);
         }
+
         document.getElementById("resultcontainer").innerHTML =
             `Compra em processamento. Por favor aguarde`;
+
+        localStorage.setItem("jogosComprados", JSON.stringify(JogosComprados))
+        
+        removeCart(gameId);
     } catch (error) {
         document.getElementById('resultcontainer').innerHTML = "Ocorreu um erro na compra :(";
         console.error('Error buying to cart:', error);
     }
 }
+
+processar()

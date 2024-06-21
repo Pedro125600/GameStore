@@ -76,8 +76,8 @@ function exibirJogosCadastrados() {
   }
 }
 
-function comprarJogo() {
-  window.location.href = "../PagamentoPage/pagamento.html"
+function comprarJogo(jogoId) {
+  window.location.href = "../PagamentoPage/pagamento.html?id=" + jogoId
 }
 
 function generateOtherImages(outrasImagens) {
