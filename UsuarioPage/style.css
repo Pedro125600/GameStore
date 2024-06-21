@@ -74,8 +74,9 @@ body {
 }
 
 .card {
-  background-color: #333;
+  background-color: #000000;
   border: none;
+  max-width: 300px;
 }
 
 .card-img-top {
@@ -104,5 +105,5 @@ footer .d-flex a {
   font-size: 14px;
 }
 .logout-button:hover {
-  background-color: darkred;
+  background-color: rgb(175, 0, 0);
 }

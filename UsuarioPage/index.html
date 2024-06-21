@@ -37,7 +37,7 @@
                 <div class="user-info">
                     <img id="profileImg" src="../Images/user-icon.png" alt="User Avatar">
                     <span id="usernameText">Usuário</span>
-                    <button id="logout-button" class="logout-button ms-2 bg-danger">Sair</button>
+                    <button id="logout-button" class="logout-button ms-2">Sair</button>
                 </div>
             </div>
         </div>
@@ -57,14 +57,8 @@
                 <div class="col-md-9">
                     <h2>Jogos do usuário</h2>
                     <div class="d-flex flex-wrap">
-                        <div class="card m-2" style="width: 18rem;">
-                            <img src="fort.jpg" class="card-img-top" alt="Game 1">
-                        </div>
-                        <div class="card m-2" style="width: 18rem;">
-                            <img src="halo.png" class="card-img-top" alt="Game 2">
-                        </div>
-                        <div class="card m-2" style="width: 18rem;">
-                            <img src="the last of us.jpg" class="card-img-top" alt="Game 3">
+                        <div id="cardTemplate" class="card m-2 d-none">
+                            <img class="card-img-top" alt="Game 1">
                         </div>
                     </div>
                 </div>

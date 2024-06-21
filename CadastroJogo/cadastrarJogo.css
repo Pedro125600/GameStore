@@ -27,6 +27,22 @@
   margin-right: 10px;
 }
 
+.logout-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+.logout-button:hover {
+  background-color: rgb(175, 0, 0);
+}
+
 body {
   margin: 0;
   background-color: black !important;
@@ -53,8 +69,13 @@ option {
   color: white;
 }
 
+#pesquisarFormControl {
+  background-color: white !important;
+  color: black !important;
+}
 
 .form-control {
+  background-color: #333 !important;
   color: white !important;
   border-color: #555 !important;
 }
@@ -81,6 +102,7 @@ option {
   background-color: #993399 !important;
   border-color: #993399 !important;
   margin-bottom: 15px;
+
 }
 
 .truncate {

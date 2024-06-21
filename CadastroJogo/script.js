@@ -29,6 +29,12 @@ if (
     usernameText.textContent = Credentials.unchangedname
 }
 
+try {
+     JSON.parse(localStorage.jogos);
+} catch {
+    localStorage.setItem("jogos", JSON.stringify([]));
+}
+
 function cadastrarJogo() {
   const nome = getInputValue("nomeJogo");
   const genero = getInputValue("generoJogo");
@@ -73,6 +79,7 @@ function cadastrarJogo() {
     jogos.capa = results[results.length - 1];
 
     const jogosCadastrados = JSON.parse(localStorage.getItem("jogos")) || [];
+    console.log(jogosCadastrados)
     jogosCadastrados.push(jogos);
     localStorage.setItem("jogos", JSON.stringify(jogosCadastrados));
 
@@ -119,9 +126,9 @@ function limparCampos() {
     "outrasImagens"
   ];
 
-  fields.forEach((field) => {
+  for (let field of fields) {
     document.getElementById(field).value = "";
-  });
+  }
 }
 
 function exibirJogosCadastrados() {
@@ -129,10 +136,11 @@ function exibirJogosCadastrados() {
   const tableBody = document.getElementById("jogosCadastradosBody");
   tableBody.innerHTML = "";
 
-  jogosCadastrados.forEach((jogo, index) => {
+  console.log(jogosCadastrados)
+  for (let jogo of jogosCadastrados) {
     const tableRow = generateTableRow(jogo);
     tableBody.innerHTML += tableRow;
-  });
+  }
 }
 
 function generateTableRow(jogo) {

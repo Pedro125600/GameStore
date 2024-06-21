@@ -47,6 +47,22 @@ nav ul li {
     color: #fff;
 }
 
+.logout-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+  }
+.logout-button:hover {
+    background-color: rgb(175, 0, 0);
+}
+
 @media (min-width: 576px) {
     .form-inline .form-control {
         display: inline-block;

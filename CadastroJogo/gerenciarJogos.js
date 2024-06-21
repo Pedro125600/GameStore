@@ -41,6 +41,12 @@ if (adminButton) {
   })
 }
 
+try {
+  JSON.parse(localStorage.jogos);
+} catch {
+ localStorage.setItem("jogos", JSON.stringify([]));
+}
+
 let jogoEditandoId = null;
 
 function exibirJogosCadastrados() {
@@ -48,7 +54,7 @@ function exibirJogosCadastrados() {
   const tbody = document.getElementById("jogosCadastradosBody");
   tbody.innerHTML = "";
 
-  jogosCadastrados.forEach((jogo) => {
+  for (let jogo of jogosCadastrados) {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${jogo.id}</td>
@@ -67,7 +73,7 @@ function exibirJogosCadastrados() {
       </td>
     `;
     tbody.appendChild(row);
-  });
+  }
 }
 
 function comprarJogo() {

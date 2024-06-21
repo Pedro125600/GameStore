@@ -1,11 +1,10 @@
-const loginForm = document.getElementById('login-form');
-const registerForm = document.getElementById('register-form');
-const userSection = document.getElementById('user-section');
-const loginSection = document.getElementById('login-section');
-const userNameDisplay = document.getElementById('user-name');
-const usernameText = document.getElementById("usernameText");
-const logoutButton = document.getElementById("logout-button");
-  
+const userNameDisplay = document.getElementById('user-name')
+const usernameText = document.getElementById("usernameText")
+const logoutButton = document.getElementById("logout-button")
+const game1 = document.getElementById("game1")
+const cardTemplate = document.getElementById("cardTemplate")
+const cardsDiv = cardTemplate.parentNode
+
 logoutButton.addEventListener("click", () => {
     // Sair da conta atual (Remover as credenciais e redirecionar para a página de login)
     localStorage.setItem("Credentials", JSON.stringify({}));
@@ -20,6 +19,14 @@ try {
     localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
 }
 
+let Jogos; // Objeto que contem todas os jogos
+try {
+    Jogos = JSON.parse(localStorage.jogos);
+} catch {
+    Jogos = {};
+    localStorage.setItem("jogos", JSON.stringify(Jogos));
+}
+
 let Credentials = JSON.parse(localStorage.getItem("Credentials"));
 
 // Redirecionar a pessoa para a página de Login se ela não estiver logada
@@ -32,4 +39,35 @@ if (
 } else {
     userNameDisplay.textContent = Credentials.unchangedname
     usernameText.textContent = Credentials.unchangedname
+}
+
+let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
+try {
+    JogosComprados = Cadastros[Credentials.name].JogosComprados;
+} catch (err) {
+    Cadastros[Credentials.name].JogosComprados = [1,2] // Alterar depois
+    JogosComprados = Cadastros[Credentials.name].JogosComprados;
+    localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+}
+
+for (let jogoId of JogosComprados) {
+    try {
+        let newCard = cardTemplate.cloneNode(true)
+        newCard.setAttribute("alt", `Game ${jogoId}`)
+        newCard.removeAttribute("id")
+
+        newCard.querySelector(".card-img-top").src = Jogos[jogoId - 1].capa
+        cardsDiv.appendChild(newCard)
+        newCard.setAttribute("class", "card m-2")
+    } catch {
+        console.log("Erro ao mostrar jogo com id: " + jogoId)
+        break;
+    }
+}
+
+if (cardsDiv.children.length == 1) {
+    let newP = document.createElement("p")
+    newP.textContent = "O Usuário não possui jogos!"
+
+    cardsDiv.appendChild(newP)
 }
