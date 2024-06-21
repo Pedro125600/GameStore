@@ -1,3 +1,60 @@
+nav {
+    background-color: #993399 !important;
+}
+
+.text2 {
+    color: white !important;
+}
+
+
+.navbar-brand img {
+    max-height: 50px;
+
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    max-height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+@media (min-width: 576px) {
+    .form-inline .form-control {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+    }
+}
+
 body {
     background-color: black;
     color: white;
@@ -15,11 +72,13 @@ body {
 header {
     background-color: rgb(173, 52, 189);
     color: aliceblue;
+
     #navsearch {
         background-color: black;
         border-radius: 10px;
         color: aliceblue;
     }
+
     .profile {
         background-color: black;
         border-radius: 5px;
@@ -85,14 +144,17 @@ header {
     .carrinho {
         font-size: 1.5vw;
     }
+
     .payment {
         font-size: 1.5vw;
     }
 }
+
 @media (max-width: 991.98px) {
     .carrinho {
         font-size: 2.5vw;
     }
+
     .payment {
         font-size: 2vw;
     }
@@ -102,21 +164,26 @@ header {
     .carrinho {
         font-size: 4vw;
     }
+
     .payment {
         font-size: 3vw;
     }
+
     #pfltext {
         font-size: 3vw;
     }
+
     #collapsable {
         background-color: rgb(113, 34, 124);
     }
 }
+
 @media (max-width: 575.98px) {
     .carrinho {
         font-size: 6vw;
         height: auto;
     }
+
     .payment {
         font-size: 4vw;
     }

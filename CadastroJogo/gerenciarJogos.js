@@ -70,6 +70,10 @@ function exibirJogosCadastrados() {
   });
 }
 
+function comprarJogo() {
+  window.location.href = "../PagamentoPage/pagamento.html"
+}
+
 function generateOtherImages(outrasImagens) {
   return outrasImagens.map((imagem) => `<img src="${imagem}" alt="Outra Imagem do Jogo" style="display: inline-block; margin: 10px; width: 100px;">`).join('');
 }

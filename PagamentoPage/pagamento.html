@@ -11,47 +11,44 @@
 </head>
 
 <body>
-    <header class="navbar navbar-expand-md d-flex align-items-center justify-content-between px-0 py-3 mx-0 mb-4">
-        <img class="text-start col-2 col-sm-1 mx-3" src="img/appicon.png" max-width="80%">
-        <button class="navbar-toggler col-2 border border-light collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="collapsable" class="container-fluid">
-            <div class="d-flexcollapse navbar-collapse collapse" id="navbarsExample04">
-                <ul class=" flex-wrap navbar-nav me-auto mb-2 mb-md-0 justify-content-around">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="../Images/logo.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active text-light mx-auto fs-5" href="DebugLoja.html">Loja</a>
+                        <a class="nav-link text2" href="./index.html">Biblioteca</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light mx-auto fs-5" href="DebugLoja.html">Biblioteca</a>
+                        <a class="nav-link text2" href="../CadastroJogo/listaJogos.html">Navegar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-light mx-auto fs-5" href="DebugLoja.html">Navegar</a>
+                        <a class="nav-link text2" href="../CadastroJogo/listaJogos.html">Loja</a>
                     </li>
                 </ul>
-                <form class="fs-5" role="search">
-                    <input id="navsearch" class="col-sm-12 col-md-12 my-2" type="search" placeholder="Pesquisar">
+                <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                 </form>
-                <div class="profile mx-1 p-2 col-12 col-sm-12 col-md-3">
-                    <a class="text-decoration-none align-items-center text-center" href="DebugLoja.html">
-                        <img class="float-left" src="img/pfp.gif" width="20%">
-                        <a href="DebugLoja.html" id="pfltext"
-                            class="px-2 align-items-center text-center text-decoration-none text-light">Usuário</a>
-                    </a>
+                <div class="user-info">
+                    <img id="profileImg" src="../Images/user-icon.png" alt="User Avatar">
+                    <span id="usernameText">Usuário</span>
+                    <button id="logout-button" class="logout-button ms-2 bg-danger">Sair</button>
                 </div>
             </div>
         </div>
-
-    </header>
+    </nav>
 
     <main class="container-fluid px-0 px-sm-5" id="main">
         <!-- CARRINHO -->
         <div class="container-fluid">
             <div id="cards-container" class="row d-flex justify-content-center mx-0 px-0 text-center">
                 <h1 class="fs-1 text-center"> CARRINHO </h1>
-                
+
             </div>
             <div class="p-2 mx-auto col-sm-4 col-md-4 col-lg-4 text-center" id="total">
                 <h2 id="totalscreen">TOTAL: R$</h2>
@@ -81,9 +78,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" src="pgscript.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-<script src="pgscript.js">
-</script>
-
-
-
+<script src="pgscript.js"></script>
 </html>

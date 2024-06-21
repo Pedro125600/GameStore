@@ -55,44 +55,32 @@ option {
 
 
 .form-control {
-  background-color: #333 !important;
-
   color: white !important;
-
   border-color: #555 !important;
-
 }
 
 .form-select {
   background-color: #333 !important;
-
   color: white !important;
-
   border-color: #555 !important;
 }
 
 .custom-btn {
   width: 100%;
   background-color: #993399 !important;
-  ;
-
   border-color: #993399 !important;
-
 }
 
 
 .custom-btn:hover {
   background-color: #993399 !important;
-
   border-color: #993399 !important;
-
 }
 
 .btn-voltar {
   background-color: #993399 !important;
   border-color: #993399 !important;
   margin-bottom: 15px;
-
 }
 
 .truncate {

@@ -47,6 +47,14 @@ nav ul li {
   color: #fff;
 }
 
+@media (min-width: 576px) {
+  .form-inline .form-control {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+  }
+}
+
 body {
   background-color: #000;
   color: #fff;
