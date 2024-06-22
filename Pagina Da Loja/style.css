@@ -1,0 +1,90 @@
+body {
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.navbar {
+  background-color: #993399;
+}
+
+.card-header {
+  background-color: #993399;
+}
+
+.card {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.btn-custom {
+  background-color: #800080;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: #550d55;
+  color: white;
+}
+
+nav {
+  background-color: #993399 !important;
+}
+
+.text2 {
+  color: white !important;
+}
+
+.navbar-brand img {
+  max-height: 50px;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  max-height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: rgb(175, 0, 0);
+}
+
+.bg-purple {
+  background-color: #800080;
+}
+
+.card-title {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.recommendations {
+  margin-top: 20px;
+}
