@@ -8,6 +8,11 @@ try {
 
 let Credentials = JSON.parse(localStorage.getItem("Credentials"));
 
+if (!Credentials) {
+    Credentials = {}
+    localStorage.setItem("Credentials", JSON.stringify(Credentials));
+}
+
 // Redirecionar a pessoa para a página de Login se ela não estiver logada ou para a pagina de usuário caso já esteja em uma conta
 if (
     !Cadastros[Credentials.name] ||
