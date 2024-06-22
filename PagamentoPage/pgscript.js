@@ -41,9 +41,12 @@ try {
 let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
 try {
     JogosComprados = Cadastros[Credentials.name].JogosComprados;
+    if (!JogosComprados) {
+        throw "error"
+    }
 } catch (err) {
-    JogosComprados = []
-    Cadastros[Credentials.name].JogosComprados = JogosComprados
+    Cadastros[Credentials.name].JogosComprados = [] // Alterar depois
+    JogosComprados = Cadastros[Credentials.name].JogosComprados;
     localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
 }
 

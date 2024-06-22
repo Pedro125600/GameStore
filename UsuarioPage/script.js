@@ -23,7 +23,7 @@ let Jogos; // Objeto que contem todas os jogos
 try {
     Jogos = JSON.parse(localStorage.jogos);
 } catch {
-    Jogos = {};
+    Jogos = [];
     localStorage.setItem("jogos", JSON.stringify(Jogos));
 }
 
@@ -44,8 +44,11 @@ if (
 let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
 try {
     JogosComprados = Cadastros[Credentials.name].JogosComprados;
+    if (!JogosComprados) {
+        throw "error"
+    }
 } catch (err) {
-    Cadastros[Credentials.name].JogosComprados = [1,2] // Alterar depois
+    Cadastros[Credentials.name].JogosComprados = [] // Alterar depois
     JogosComprados = Cadastros[Credentials.name].JogosComprados;
     localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
 }

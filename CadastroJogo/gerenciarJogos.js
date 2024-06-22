@@ -31,6 +31,27 @@ logoutButton.addEventListener("click", () => {
   window.location.href = "../LoginPage/index.html";
 })
 
+let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
+try {
+    JogosComprados = Cadastros[Credentials.name].JogosComprados;
+    console.log(JogosComprados)
+} catch (err) {
+    JogosComprados = []
+    Cadastros[Credentials.name].JogosComprados = JogosComprados
+    localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+}
+
+let jogos_carrinho; // Objeto que contem um vetor de ID dos jogos no carrinho
+try {
+    jogos_carrinho = JSON.parse(localStorage.getItem("jogos_carrinho"));
+    if (!jogos_carrinho) {
+      throw "erro"
+    }
+} catch (err) {
+    jogos_carrinho = []
+    localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho));
+}
+
 if (adminButton) {
   adminButton.addEventListener("click", () => {
     if (Credentials.name == "admin") {
@@ -42,7 +63,9 @@ if (adminButton) {
 }
 
 try {
-  JSON.parse(localStorage.jogos);
+  if (!JSON.parse(localStorage.jogos)) {
+    throw "erro"
+  };
 } catch {
  localStorage.setItem("jogos", JSON.stringify([]));
 }
@@ -69,7 +92,7 @@ function exibirJogosCadastrados() {
       <td>
         ${(Credentials.name == "admin") ? `<button class="btn btn-warning btn-sm" onclick="editarJogo(${jogo.id})">Editar</button>
         <button class="btn btn-danger btn-sm mt-2" onclick="excluirJogo(${jogo.id})">Excluir</button>` :  ""}
-        <button class="btn btn-primary btn-sm mt-2" onclick="comprarJogo(${jogo.id})">Comprar</button>
+        <button class="btn btn-primary btn-sm mt-2" onclick="comprarJogo(${jogo.id})" ${(JogosComprados.includes(jogo.id)) ? "disabled>Possuído</button>" : ">Comprar</button>"}
       </td>
     `;
     tbody.appendChild(row);
@@ -77,7 +100,11 @@ function exibirJogosCadastrados() {
 }
 
 function comprarJogo(jogoId) {
-  window.location.href = "../PagamentoPage/pagamento.html?id=" + jogoId
+  if (!jogos_carrinho.includes(jogoId)) {
+    jogos_carrinho.push(jogoId)
+    localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho));
+  }
+  window.location.href = "../PagamentoPage/pagamento.html"
 }
 
 function generateOtherImages(outrasImagens) {
@@ -92,6 +119,19 @@ function excluirJogo(id) {
   let jogosCadastrados = JSON.parse(localStorage.getItem("jogos")) || [];
   jogosCadastrados = jogosCadastrados.filter(j => j.id !== id);
   localStorage.setItem("jogos", JSON.stringify(jogosCadastrados));
+
+  for (let conta in Cadastros) {
+    console.log(Cadastros[conta])
+    console.log(Cadastros[conta].JogosComprados)
+    if (Cadastros[conta].JogosComprados?.includes(id)) {
+      let index = Cadastros[conta].JogosComprados.findIndex(item => item == id);
+      if (index !== -1) {
+        Cadastros[conta].JogosComprados.splice(index, 1);
+          localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+      }  
+    }
+  }
+
   exibirJogosCadastrados();
   alert("Jogo excluído com sucesso!");
 }

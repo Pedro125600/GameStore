@@ -33,9 +33,12 @@ if (
 let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
 try {
     JogosComprados = Cadastros[Credentials.name].JogosComprados;
+    if (!JogosComprados) {
+        throw "error"
+    }
 } catch (err) {
-    JogosComprados = []
-    Cadastros[Credentials.name].JogosComprados = JogosComprados
+    Cadastros[Credentials.name].JogosComprados = [] // Alterar depois
+    JogosComprados = Cadastros[Credentials.name].JogosComprados;
     localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
 }
 
@@ -86,7 +89,7 @@ function BuyCart(gameId) {
         document.getElementById("resultcontainer").innerHTML =
             `Compra em processamento. Por favor aguarde`;
 
-        localStorage.setItem("jogosComprados", JSON.stringify(JogosComprados))
+            localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
         
         removeCart(gameId);
     } catch (error) {
