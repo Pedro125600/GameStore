@@ -26,6 +26,10 @@ try {
 
 let Credentials = JSON.parse(localStorage.getItem("Credentials"));
 
+if (!Credentials) {
+    window.location.href = "../LoginPage/index.html"
+}
+
 // Redirecionar a pessoa para a página de Login se ela não estiver logada ou se não for admin
 if (
     !Cadastros[Credentials.name] ||
