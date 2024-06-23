@@ -21,5 +21,5 @@ if (
     localStorage.setItem("Credentials", JSON.stringify({}));
     window.location.href = "./LoginPage/index.html";
 } else {
-    window.location.href = "./UsuarioPage/index.html"
+    window.location.href = "./Pagina Principal/index.html"
 }
