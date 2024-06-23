@@ -3,6 +3,12 @@ const logoutButton = document.getElementById("logout-button")
 const adminButton = document.getElementById("adminButton")
 const adminError = document.getElementById("adminError")
 
+const pesquisarButton = document.getElementById("PesquisarButton")
+pesquisarButton.addEventListener("click", function(e) {
+    e.preventDefault()
+    window.location.href = "../CadastroJogo/listaJogos.html"
+})
+
 let Cadastros; // Objeto que contem todas as contas
 try {
     Cadastros = JSON.parse(localStorage.Cadastros);
