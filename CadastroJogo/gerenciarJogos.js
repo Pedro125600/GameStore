@@ -34,7 +34,6 @@ logoutButton.addEventListener("click", () => {
 let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
 try {
     JogosComprados = Cadastros[Credentials.name].JogosComprados;
-    console.log(JogosComprados)
 } catch (err) {
     JogosComprados = []
     Cadastros[Credentials.name].JogosComprados = JogosComprados
@@ -81,7 +80,7 @@ function exibirJogosCadastrados() {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${jogo.id}</td>
-      <td>${jogo.nome}</td>
+      <td><a href="../Pagina do jogo/index.html?id=${jogo.id}">${jogo.nome}</a></td>
       <td>${jogo.genero}</td>
       <td  class="truncate">${jogo.descricao}</td>
       <td>${jogo.desenvolvedor}</td>

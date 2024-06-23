@@ -55,12 +55,22 @@ try {
 
 for (let jogoId of JogosComprados) {
     try {
+        let jogo;
+        for (let i = 0; i < Jogos.length; i++) {
+            if (Jogos[i].id == jogoId) {
+                jogo = Jogos[i]
+            }
+        }
         let newCard = cardTemplate.cloneNode(true)
         newCard.setAttribute("alt", `Game ${jogoId}`)
         newCard.removeAttribute("id")
 
-        newCard.querySelector(".card-img-top").src = Jogos[jogoId - 1].capa
+        newCard.querySelector(".card-img-top").src = jogo.capa
         cardsDiv.appendChild(newCard)
+        newCard.querySelector(".jogoNome").textContent = jogo.nome
+        newCard.querySelector(".jogoNome").href = "../Pagina do jogo/index.html?id=" + jogoId
+        newCard.querySelector(".jogoLink").href = "../Pagina do jogo/index.html?id=" + jogoId
+        
         newCard.setAttribute("class", "card m-2")
     } catch {
         console.log("Erro ao mostrar jogo com id: " + jogoId)

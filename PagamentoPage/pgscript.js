@@ -85,7 +85,7 @@ var cardCounter = 1;
 function addCard(jogo) {
     const cardId = `${cardCounter}`;
     let promover = `<div id="bandaider" class=" card-body text-wrap">
-        <p><a class="text-decoration-none" href="game${jogo.id}.html">${jogo.nome}</a></p>
+        <p><a class="text-decoration-none">${jogo.nome}</a></p>
         <p>R$${jogo.valor}</p>`;
     
     const modalHtml = `<div class="modal modal-sheet p-4 py-md-5" tabindex="-1" role="dialog"
