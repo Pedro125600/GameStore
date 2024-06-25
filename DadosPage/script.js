@@ -12,7 +12,12 @@ let textErrors = document.getElementsByClassName("text-error")
 const pesquisarButton = document.getElementById("PesquisarButton")
 pesquisarButton.addEventListener("click", function(e) {
     e.preventDefault()
-    window.location.href = "../CadastroJogo/listaJogos.html"
+    let textoParaPesquisar = pesquisarButton.parentNode.querySelector("input").value
+    if (textoParaPesquisar) {
+        window.location.href = "../CadastroJogo/listaJogos.html?search=" + textoParaPesquisar.toLowerCase()
+    } else {
+        window.location.href = "../CadastroJogo/listaJogos.html"
+    }
 })
 
 let Cadastros; // Objeto que contem todas as contas

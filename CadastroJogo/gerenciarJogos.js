@@ -2,33 +2,68 @@ const usernameText = document.getElementById("usernameText")
 const logoutButton = document.getElementById("logout-button")
 const adminButton = document.getElementById("adminButton")
 const adminError = document.getElementById("adminError")
-
+const pesquisarJogoForm = document.getElementById("search-bar-form")
 const pesquisarButton = document.getElementById("PesquisarButton")
+const URLSearch = new URLSearchParams(window.location.search)
+const pesquisarQuery = URLSearch.get("search")
+
+if (pesquisarJogoForm) {
+  let input = pesquisarJogoForm.querySelector("input")
+  let button = pesquisarJogoForm.querySelector("button")
+
+  input.addEventListener("keyup", function(e) {
+    e.preventDefault()
+
+    pesquisar(input.value.toLowerCase())
+  })
+  button.addEventListener("click", function (e) {
+    e.preventDefault()
+
+    pesquisar(input.value.toLowerCase())
+  })
+    
+}
+
+function pesquisar(text) {
+  let jogosCadastrados = JSON.parse(localStorage.getItem("jogos")) || [];
+  if (text) {
+    let jogosFiltrados = jogosCadastrados.filter(game => game.nome.toLowerCase().includes(text.toLowerCase()));
+    exibirJogosCadastrados(jogosFiltrados);
+  } else {
+    exibirJogosCadastrados();
+  }
+}
+
 pesquisarButton.addEventListener("click", function(e) {
     e.preventDefault()
-    window.location.href = "../CadastroJogo/listaJogos.html"
+    let textoParaPesquisar = pesquisarButton.parentNode.querySelector("input").value
+    if (textoParaPesquisar) {
+        window.location.href = "../CadastroJogo/listaJogos.html?search=" + textoParaPesquisar.toLowerCase()
+    } else {
+        window.location.href = "../CadastroJogo/listaJogos.html"
+    }
 })
 
 let Cadastros; // Objeto que contem todas as contas
 try {
-    Cadastros = JSON.parse(localStorage.Cadastros);
+  Cadastros = JSON.parse(localStorage.Cadastros);
 } catch {
-    Cadastros = {};
-    localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+  Cadastros = {};
+  localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
 }
 
 let Credentials = JSON.parse(localStorage.getItem("Credentials"));
 
 // Redirecionar a pessoa para a página de Login se ela não estiver logada
 if (
-    !Cadastros[Credentials.name] ||
-    Cadastros[Credentials.name]["senha"] != Credentials.senha ||
-    (!adminButton && Credentials.name != "admin")
+  !Cadastros[Credentials.name] ||
+  Cadastros[Credentials.name]["senha"] != Credentials.senha ||
+  (!adminButton && Credentials.name != "admin")
 ) {
-    localStorage.setItem("Credentials", JSON.stringify({}));
-    window.location.href = "../LoginPage/index.html";
+  localStorage.setItem("Credentials", JSON.stringify({}));
+  window.location.href = "../LoginPage/index.html";
 } else {
-    usernameText.textContent = Credentials.unchangedname
+  usernameText.textContent = Credentials.unchangedname
 }
 
 logoutButton.addEventListener("click", () => {
@@ -39,22 +74,22 @@ logoutButton.addEventListener("click", () => {
 
 let JogosComprados; // Objeto que contem o ID de todos os jogos comprados
 try {
-    JogosComprados = Cadastros[Credentials.name].JogosComprados;
+  JogosComprados = Cadastros[Credentials.name].JogosComprados;
 } catch (err) {
-    JogosComprados = []
-    Cadastros[Credentials.name].JogosComprados = JogosComprados
-    localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+  JogosComprados = []
+  Cadastros[Credentials.name].JogosComprados = JogosComprados
+  localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
 }
 
 let jogos_carrinho; // Objeto que contem um vetor de ID dos jogos no carrinho
 try {
-    jogos_carrinho = JSON.parse(localStorage.getItem("jogos_carrinho"));
-    if (!jogos_carrinho) {
-      throw "erro"
-    }
+  jogos_carrinho = JSON.parse(localStorage.getItem("jogos_carrinho"));
+  if (!jogos_carrinho) {
+    throw "erro"
+  }
 } catch (err) {
-    jogos_carrinho = []
-    localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho));
+  jogos_carrinho = []
+  localStorage.setItem("jogos_carrinho", JSON.stringify(jogos_carrinho));
 }
 
 if (adminButton) {
@@ -72,13 +107,19 @@ try {
     throw "erro"
   };
 } catch {
- localStorage.setItem("jogos", JSON.stringify([]));
+  localStorage.setItem("jogos", JSON.stringify([]));
 }
 
 let jogoEditandoId = null;
 
-function exibirJogosCadastrados() {
-  const jogosCadastrados = JSON.parse(localStorage.getItem("jogos")) || [];
+function exibirJogosCadastrados(jogos) {
+  let jogosCadastrados;
+  if (jogos) {
+    jogosCadastrados = jogos
+  } else {
+    jogosCadastrados = JSON.parse(localStorage.getItem("jogos")) || [];
+  }
+
   const tbody = document.getElementById("jogosCadastradosBody");
   tbody.innerHTML = "";
 
@@ -96,7 +137,7 @@ function exibirJogosCadastrados() {
       <td>${generateOtherImages(jogo.outrasImagens)}</td>
       <td>
         ${(Credentials.name == "admin") ? `<button class="btn btn-warning btn-sm" onclick="editarJogo(${jogo.id})">Editar</button>
-        <button class="btn btn-danger btn-sm mt-2" onclick="excluirJogo(${jogo.id})">Excluir</button>` :  ""}
+        <button class="btn btn-danger btn-sm mt-2" onclick="excluirJogo(${jogo.id})">Excluir</button>` : ""}
         <button class="btn btn-primary btn-sm mt-2" onclick="comprarJogo(${jogo.id})" ${(JogosComprados.includes(jogo.id)) ? "disabled>Possuído</button>" : ">Comprar</button>"}
       </td>
     `;
@@ -132,8 +173,8 @@ function excluirJogo(id) {
       let index = Cadastros[conta].JogosComprados.findIndex(item => item == id);
       if (index !== -1) {
         Cadastros[conta].JogosComprados.splice(index, 1);
-          localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
-      }  
+        localStorage.setItem("Cadastros", JSON.stringify(Cadastros));
+      }
     }
   }
 
@@ -227,5 +268,10 @@ function readFileAsDataURL(file) {
 if (window.location.pathname.endsWith('gerenciarJogos.html')) {
   carregarDadosEdicao();
 } else {
-  exibirJogosCadastrados();
+  if (pesquisarQuery) {
+    pesquisarJogoForm.querySelector("input").value = pesquisarQuery
+    pesquisar(pesquisarQuery)
+  } else {
+    exibirJogosCadastrados();
+  }
 }
